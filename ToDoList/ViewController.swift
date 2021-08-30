@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             field.placeholder = "Enter.item..."
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak self]( ) in
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak self]() in
             if let ffield = alert.textFields?.first{
                 if let text = field.text, !text.isEmpty {
                     
