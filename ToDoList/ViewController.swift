@@ -5,73 +5,60 @@
 //  Created by нурсултан арапов on 8/29/21.
 //
 
+
+import RealmSwift
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+/*
+ - To show list of current to do list items
+ - To enter new to do list items
+ - To show previously entered to do list item
+ 
+ - Item
+ - Date
+ */
 
+class ToDoListItem:  Object{
+    @objc dynamic var item: String = ""
+    @objc dynamic var date: Date = Date()
+}
+
+class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    private let table: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self,
-                       forCellReuseIdentifier: "cell")
-        return table
-    }()
+    @IBOutlet var table: UITableView!
     
-    var items = [String]()
-    
+    private var data = [ToDoListItem]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.items = UserDefaults.standard.stringArray(forKey: "items") ?? []
-        title = "To Do List"
-        view.addSubview(table)
-        table.dataSource = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-                                                            target: self,
-                                                            action: #selector(didTapAdd))
+ 
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.delegate = self
+        table.dataSoource = self
     }
     
-    @objc private func didTapAdd(){
-        let alert = UIAlertController(title: "New Item", message: "Enter to do list item!", preferredStyle: .alert)
-        alert.addTextField { field in
-            field.placeholder = "Enter.item..."
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak self]() in
-            if let ffield = alert.textFields?.first{
-                if let text = field.text, !text.isEmpty {
-                    
-                    // Enter new to do list item
-                    DispatchQueue.main.async {
-                        var currentItems = UserDefaults.standard.stringArray(forKey: "items") ?? []
-                        currentItems.append(text)
-                        UserDefaults.standard.setValue(currentItems, forKey: "items")
-                        self?.items.append(text)
-                        self?.table.reloadData()
-                    }
-                }
-            }
-        }))
-        present(alert, animated: true)
-    }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        table.frame = view.bounds
-    }
+    // Mark: Table
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                 for: indexPath)
-        cell.textLabel?.text  = items[indexPath.row]
+        let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = data[indexPath.row].item
         return cell
     }
     
-
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //Open the screen where we can see item info and dleete
+    }
+    
+    
+    @IBAction func didTapAddButton(){
+        
+    }
+    
 }
 
