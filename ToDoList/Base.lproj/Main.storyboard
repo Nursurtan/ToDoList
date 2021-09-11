@@ -45,16 +45,42 @@
             </objects>
             <point key="canvasLocation" x="809" y="78"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry View Controller-->
         <scene sceneID="etJ-vr-bBX">
             <objects>
-                <viewController id="VPe-gW-FOt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enter" id="VPe-gW-FOt" customClass="EntryViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Qv-ID-Fem">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dbd-bh-9KZ">
+                                <rect key="frame" x="20" y="54" width="374" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="B6O-yn-aGB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kAH-Na-D5Z">
+                                <rect key="frame" x="0.0" y="156" width="414" height="706"/>
+                            </datePicker>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HPh-gp-rQP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kAH-Na-D5Z" firstAttribute="leading" secondItem="HPh-gp-rQP" secondAttribute="leading" id="11l-Ua-aqC"/>
+                            <constraint firstItem="kAH-Na-D5Z" firstAttribute="top" secondItem="Dbd-bh-9KZ" secondAttribute="bottom" constant="50" id="J2A-Jg-4sG"/>
+                            <constraint firstItem="HPh-gp-rQP" firstAttribute="bottom" secondItem="kAH-Na-D5Z" secondAttribute="bottom" id="Jw1-To-uLX"/>
+                            <constraint firstItem="Dbd-bh-9KZ" firstAttribute="leading" secondItem="HPh-gp-rQP" secondAttribute="leading" constant="20" id="Zes-TH-TsW"/>
+                            <constraint firstItem="HPh-gp-rQP" firstAttribute="trailing" secondItem="Dbd-bh-9KZ" secondAttribute="trailing" constant="20" id="i0B-jM-ydw"/>
+                            <constraint firstItem="Dbd-bh-9KZ" firstAttribute="top" secondItem="HPh-gp-rQP" secondAttribute="top" constant="10" id="xOk-Rl-pai"/>
+                            <constraint firstItem="kAH-Na-D5Z" firstAttribute="trailing" secondItem="HPh-gp-rQP" secondAttribute="trailing" id="yNo-yX-crJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="kAH-Na-D5Z" id="dWO-LN-6IE"/>
+                        <outlet property="textaField" destination="Dbd-bh-9KZ" id="Xpn-u4-ytG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXx-37-vND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

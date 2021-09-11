@@ -27,11 +27,12 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     @IBOutlet var table: UITableView!
     
+    private let realm = try! Realm()
     private var data = [ToDoListItem]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        data = realm.objects(ToDoListItem.self).map({ $0 })
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         table.delegate = self
         table.dataSoource = self
@@ -57,8 +58,20 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     
     @IBAction func didTapAddButton(){
-        
+        guard let vc = storyboard?.instantiateViewController(identifier: "enter") as? EntryViewController else {
+            return
+        }
+        vc.completionHander = { [weak self] in
+            self?.refresh()
+        }
+        vc.title = " New Item"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
+    func refresh() {
+        data = realm.objects(ToDoListItem.self).map({ $0 })
+        table.reloadData()
+    }
 }
 
