@@ -5,7 +5,6 @@
 //  Created by нурсултан арапов on 8/29/21.
 //
 
-
 import RealmSwift
 import UIKit
 
@@ -53,7 +52,20 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //Open the screen where we can see item info and dleete
+        //Open the screen where we can see item info and delete
+        let item = data[indexPath.row]
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "view") as? ViewViewController else {
+            return
+        }
+        
+        vc.item = item
+        vc.deletionHander = {[weak self] in
+            self?.refresh()
+        }
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.title = item.item
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

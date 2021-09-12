@@ -79,27 +79,59 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="kAH-Na-D5Z" id="dWO-LN-6IE"/>
-                        <outlet property="textaField" destination="Dbd-bh-9KZ" id="Xpn-u4-ytG"/>
+                        <outlet property="textField" destination="Dbd-bh-9KZ" id="FYk-hp-9iK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXx-37-vND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1565" y="78"/>
         </scene>
-        <!--View Controller-->
+        <!--View View Controller-->
         <scene sceneID="y1G-zk-Hda">
             <objects>
-                <viewController id="fvw-XP-tzB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="view" id="fvw-XP-tzB" customClass="ViewViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mJZ-HX-BpE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGp-j3-agG">
+                                <rect key="frame" x="20" y="64" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="aTL-ca-Cl2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-Ai-eSQ">
+                                <rect key="frame" x="20" y="144" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="4Pl-w9-SBw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Mz4-1m-o8b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dGp-j3-agG" firstAttribute="leading" secondItem="Mz4-1m-o8b" secondAttribute="leading" constant="20" id="F9L-H6-eyb"/>
+                            <constraint firstItem="Mz4-1m-o8b" firstAttribute="trailing" secondItem="dGp-j3-agG" secondAttribute="trailing" constant="20" id="GKx-dk-xXk"/>
+                            <constraint firstItem="dGp-j3-agG" firstAttribute="top" secondItem="Mz4-1m-o8b" secondAttribute="top" constant="20" id="HCW-2c-xKe"/>
+                            <constraint firstItem="3DA-Ai-eSQ" firstAttribute="top" secondItem="dGp-j3-agG" secondAttribute="bottom" constant="10" id="Wag-Da-QZn"/>
+                            <constraint firstItem="Mz4-1m-o8b" firstAttribute="trailing" secondItem="3DA-Ai-eSQ" secondAttribute="trailing" constant="20" id="xh0-No-a9i"/>
+                            <constraint firstItem="3DA-Ai-eSQ" firstAttribute="leading" secondItem="Mz4-1m-o8b" secondAttribute="leading" constant="20" id="z85-Z4-R2y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataLabel" destination="3DA-Ai-eSQ" id="yv4-xW-zkg"/>
+                        <outlet property="itemLabel" destination="dGp-j3-agG" id="pRg-Rw-d2T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njO-GD-9No" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346" y="117"/>
+            <point key="canvasLocation" x="2267" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f3N-Jp-2on">
