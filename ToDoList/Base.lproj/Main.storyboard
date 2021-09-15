@@ -95,7 +95,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGp-j3-agG">
-                                <rect key="frame" x="20" y="64" width="374" height="70"/>
+                                <rect key="frame" x="20" y="108" width="374" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="aTL-ca-Cl2"/>
                                 </constraints>
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-Ai-eSQ">
-                                <rect key="frame" x="20" y="144" width="374" height="70"/>
+                                <rect key="frame" x="20" y="188" width="374" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="4Pl-w9-SBw"/>
                                 </constraints>
@@ -124,6 +124,7 @@
                             <constraint firstItem="3DA-Ai-eSQ" firstAttribute="leading" secondItem="Mz4-1m-o8b" secondAttribute="leading" constant="20" id="z85-Z4-R2y"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fzT-m1-pmp"/>
                     <connections>
                         <outlet property="dataLabel" destination="3DA-Ai-eSQ" id="yv4-xW-zkg"/>
                         <outlet property="itemLabel" destination="dGp-j3-agG" id="pRg-Rw-d2T"/>
@@ -131,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njO-GD-9No" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2267" y="78"/>
+            <point key="canvasLocation" x="3176.811594202899" y="77.678571428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f3N-Jp-2on">
@@ -150,6 +151,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yl8-qe-cJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="77.678571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YAF-AC-LgZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="386-pp-MuF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oIM-yl-ule">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fvw-XP-tzB" kind="relationship" relationship="rootViewController" id="Y0E-0z-gmf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iPz-SI-lRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2266.666666666667" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>
